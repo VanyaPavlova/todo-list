@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>To-Do-List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -12,14 +13,14 @@
       <p>Active Filter: <span id="js-selected-filter" class="current-filter">All</span></p>
   	</header>
   	<section>
-  		<div>
-  			<input type="text" id="js-todo-input" placeholder="Add new To-Do item" class="form-control" autofocus />
-  			<button type="button" id="js-add-todo-button" class="btn btn-default">Add</button>
+  		<div class="input-actions clearfix">
+  			<input type="text" id="js-todo-input" placeholder="Add new To-Do item" class="form-control pull-left todo-input" autofocus />
+  			<button type="button" id="js-add-todo-button" class="btn btn-default pull-right">Add</button>
   		</div>
   		<ul id="js-todo-list" class="to-do-list">
         <!-- items rendered with js -->
   		</ul>
-      <div>
+      <div class="filter-buttons">
         <button type="button" class="js-filter-button btn btn-default" data-filter="all">All</button>
         <button type="button" class="js-filter-button btn btn-default" data-filter="active">Active</button>
         <button type="button" class="js-filter-button btn btn-default" data-filter="completed">Completed</button>

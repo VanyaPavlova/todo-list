@@ -9,6 +9,7 @@ body {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 li {
@@ -23,7 +24,7 @@ h1, label {
 
 .container {
   display: block;
-  max-width:600px;
+  max-width:500px;
   margin: 100px auto 0;
 }
 
@@ -42,17 +43,18 @@ h1, label {
   font-family: monospace;
 }
 
-.btn-default {
-  margin: 20px 5px;
+.filter-buttons {
+  text-align:right;
 }
 
-.btn-warning {
-  float: right;
+.form-control {
+  max-width: 80%;
 }
 
-.btn-danger {
-  float: right;
-  margin: 0 10px;
+li .btn + .btn {
+  margin-right: 10px;
 }
 
-
+.is-hidden {
+  display: none;
+}

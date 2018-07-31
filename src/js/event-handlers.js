@@ -16,7 +16,6 @@ export class TodoListEventHandler {
          todoList.removeItem(index);
          todoList.render();
          todoList.saveToLocalStorage();
-         todoList.restoreFromLocalStorage();
       }
 
       if (action === 'edit') {

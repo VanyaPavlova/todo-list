@@ -1,21 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen:100,200,400,600,700');
+$font-stack: 'Oxygen',
+sans-serif;
 $background: #fff;
-
 body {
-  background: $background; 
+  font-family: $font-stack;
+  background: $background;
 }
 
-.filter-all {
+ul {
+  list-style: none;
 }
+
+li {
+  min-height: 60px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+h1, label {
+  color:#132226;
+}
+
+.container {
+  display: block;
+  max-width:600px;
+  margin: 100px auto 0;
+}
+
+.filter-all {}
 
 .filter-active [data-completed="true"] {
-	display:none;
+  display: none;
 }
 
 .filter-completed [data-completed="false"] {
-	display:none;
+  display: none;
 }
 
 .current-filter {
   text-transform: uppercase;
   font-family: monospace;
 }
+
+.btn-default {
+  margin: 20px 5px;
+}
+
+.btn-warning {
+  float: right;
+}
+
+.btn-danger {
+  float: right;
+  margin: 0 10px;
+}
+
+

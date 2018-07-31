@@ -3,25 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<title>To-Do-List</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-  <main>
+  <main class="container">
   	<header>
-  		<h1><label for="js-todo-input">To-Do-List</label></h1>
+  		<h1><label for="js-todo-input">Todo List</label></h1>
       <p>Active Filter: <span id="js-selected-filter" class="current-filter">All</span></p>
   	</header>
   	<section>
   		<div>
-  			<input type="text" id="js-todo-input" placeholder="Add new To-Do item" autofocus />
-  			<button type="button" id="js-add-todo-button">Add</button>
+  			<input type="text" id="js-todo-input" placeholder="Add new To-Do item" class="form-control" autofocus />
+  			<button type="button" id="js-add-todo-button" class="btn btn-default">Add</button>
   		</div>
   		<ul id="js-todo-list" class="to-do-list">
         <!-- items rendered with js -->
   		</ul>
       <div>
-        <button type="button" class="js-filter-button" data-filter="all">All</button>
-        <button type="button" class="js-filter-button" data-filter="active">Active</button>
-        <button type="button" class="js-filter-button" data-filter="completed">Completed</button>
+        <button type="button" class="js-filter-button btn btn-default" data-filter="all">All</button>
+        <button type="button" class="js-filter-button btn btn-default" data-filter="active">Active</button>
+        <button type="button" class="js-filter-button btn btn-default" data-filter="completed">Completed</button>
       </div>
   	</section>
   </main>

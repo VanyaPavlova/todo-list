@@ -1,19 +1,58 @@
 import '../sass/style.scss';
 import {Todo} from './todo.js';
 import {TodoList} from './todo-list.js';
+import {TodoListEventHandler} from './event-handlers.js';
 
-const t1 = new Todo({ value: 'To-Do-Item-1', completed: true });
-const t2 = new Todo({ value: 'To-Do-Item-2', completed: false });
-const t3 = new Todo({ value: 'To-Do-Item-3', completed: true });
-const t4 = new Todo({ value: 'To-Do-Item-4', completed: false });
-const t5 = new Todo({ value: 'To-Do-Item-5', completed: true });
-const t6 = new Todo({ value: 'To-Do-Item-6', completed: false });
+const ENTER_KEY_CODE = 13;
 
-const list = new TodoList({ todos: [] });
+function init() {
 
-const ui_list = document.getElementById("js-todo-list");
-const html = list.toHtmlString();
+  const ui_list = document.querySelector('#js-todo-list');	
+  const add_new_todo_input = document.querySelector('#js-todo-input');
+  const add_new_todo_button = document.querySelector('#js-add-todo-button');
+  const selected_filter_span = document.querySelector('#js-selected-filter');
+  const filter_buttons = Array.from(document.querySelectorAll('.js-filter-button'));
 
-console.log(html);
-ui_list.innerHTML= html;
+  const todoList = new TodoList({ todos: [], ul: ui_list });
+  todoList.addItem('test1');
+  todoList.addItem('test2');
+  todoList.addItem('test3');
+  todoList.addItem('test4');
+  todoList.addItem('test5');
+  
+  ui_list.addEventListener('click', (event) => {
+    TodoListEventHandler.delegatedTodoItemClick(event, todoList);
+  });
+  
+  add_new_todo_input.addEventListener('keydown', (event) => {
+    if (event.keyCode === ENTER_KEY_CODE) {
+      const value = add_new_todo_input.value.trim();
+      TodoListEventHandler.onAddItem(event, todoList, value);
+      add_new_todo_input.value = '';
+      add_new_todo_input.focus();
+    }
+  });
 
+  add_new_todo_button.addEventListener('click', (event) => {
+    const value = add_new_todo_input.value.trim();
+    TodoListEventHandler.onAddItem(event, todoList, value);
+    add_new_todo_input.value = '';
+    add_new_todo_input.focus();
+  });
+
+  filter_buttons.forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+        const filter = btn.dataset.filter;
+        ui_list.classList.remove('filter-all');
+        ui_list.classList.remove('filter-active');
+        ui_list.classList.remove('filter-completed');
+        ui_list.classList.add(`filter-${filter}`);
+        selected_filter_span.innerText = filter;
+    });
+  });
+  
+  todoList.render();
+
+}
+
+  init();

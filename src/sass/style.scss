@@ -1,5 +1,21 @@
-$background: #fffd8d;
+$background: #fff;
 
 body {
   background: $background; 
+}
+
+.filter-all {
+}
+
+.filter-active [data-completed="true"] {
+	display:none;
+}
+
+.filter-completed [data-completed="false"] {
+	display:none;
+}
+
+.current-filter {
+  text-transform: uppercase;
+  font-family: monospace;
 }

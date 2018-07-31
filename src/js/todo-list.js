@@ -1,13 +1,9 @@
 import {Todo} from './todo.js';
 
 export class TodoList {
-  constructor({ todos = [] }) {
+  constructor({ todos = [], ul }) {
      this.todos = todos;
-  }
-
-  toHtmlString() {
-    const html = this.todos.map((item) => item.toHtmlString()).join('');
-    return html;
+     this.ul = ul;
   }
   
   addItem(value = '') {
@@ -32,6 +28,15 @@ export class TodoList {
 
   getAllItems() {
      return this.todos;
+  }
+  
+  toHtmlString() {
+    const html = this.todos.map((item, index) => item.toHtmlString({index: index})).join('');
+    return html;
+  }
+
+  render() {
+    this.ul.innerHTML = this.toHtmlString();
   }
 
 }

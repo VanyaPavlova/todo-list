@@ -7,20 +7,21 @@
 <body>
   <main>
   	<header>
-  		<h1>To-Do-List</h1>
+  		<h1><label for="js-todo-input">To-Do-List</label></h1>
+      <p>Active Filter: <span id="js-selected-filter" class="current-filter">All</span></p>
   	</header>
   	<section>
   		<div>
-  			<input type="text" placeholder="Add new To-Do item" />
-  			<button type="button">Add</button>
+  			<input type="text" id="js-todo-input" placeholder="Add new To-Do item" autofocus />
+  			<button type="button" id="js-add-todo-button">Add</button>
   		</div>
   		<ul id="js-todo-list" class="to-do-list">
-  			<!-- will be inserted here with js -->
+        <!-- items rendered with js -->
   		</ul>
       <div>
-        <button type="button">All</button>
-        <button type="button">Active</button>
-        <button type="button">Completed</button>
+        <button type="button" class="js-filter-button" data-filter="all">All</button>
+        <button type="button" class="js-filter-button" data-filter="active">Active</button>
+        <button type="button" class="js-filter-button" data-filter="completed">Completed</button>
       </div>
   	</section>
   </main>

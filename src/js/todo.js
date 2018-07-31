@@ -6,11 +6,9 @@ export class Todo {
 
    toHtmlString(props) {
      return `
-      <li>
-        <label>
-        	<input type="checkbox" ${this.completed ? 'checked' : ''}>
-            ${this.value}
-        </label>
+      <li data-index="${props.index}" data-completed="${this.completed}">
+        <input type="checkbox" ${this.completed ? 'checked' : ''}>
+        <label>${this.value}</label>
         <button type="button" data-action="edit">Edit</button>
         <button type="button" data-action="delete">Delete</button>
       </li>`;

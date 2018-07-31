@@ -1,8 +1,14 @@
 import {Todo} from './todo.js';
 
 export class TodoList {
-  constructor({ todos = [], ul }) {
-     this.todos = todos;
+  constructor({ todos = [], ul, restoreFromLocalStorage = false }) {
+    if (restoreFromLocalStorage) {
+       this.todos = this.restoreFromLocalStorage();
+    }
+    else {
+      this.todos = todos;
+    }
+
      this.ul = ul;
   }
   
@@ -37,6 +43,17 @@ export class TodoList {
 
   render() {
     this.ul.innerHTML = this.toHtmlString();
+  }
+
+  saveToLocalStorage() {
+    const str = JSON.stringify(this.todos);
+    localStorage.setItem("todos",str);
+  }
+
+  restoreFromLocalStorage() {
+    const str = localStorage.getItem("todos") || '[]';
+    const todos = JSON.parse(str).map(t => new Todo(t));
+    return todos;
   }
 
 }

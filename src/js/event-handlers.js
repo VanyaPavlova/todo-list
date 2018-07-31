@@ -15,6 +15,8 @@ export class TodoListEventHandler {
       if (action === 'delete') {
          todoList.removeItem(index);
          todoList.render();
+         todoList.saveToLocalStorage();
+         todoList.restoreFromLocalStorage();
       }
 
       if (action === 'edit') {
@@ -27,6 +29,7 @@ export class TodoListEventHandler {
         const index = Number(li.dataset.index);
         todoList.toggleItem(index);
         todoList.render();
+        todoList.saveToLocalStorage();
     }
 
   }
@@ -34,6 +37,7 @@ export class TodoListEventHandler {
   static onAddItem(event, todoList, value) {
      todoList.addItem(value);
      todoList.render();
+     todoList.saveToLocalStorage();
   }
 
 }

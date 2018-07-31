@@ -13,13 +13,8 @@ function init() {
   const selected_filter_span = document.querySelector('#js-selected-filter');
   const filter_buttons = Array.from(document.querySelectorAll('.js-filter-button'));
 
-  const todoList = new TodoList({ todos: [], ul: ui_list });
-  todoList.addItem('test1');
-  todoList.addItem('test2');
-  todoList.addItem('test3');
-  todoList.addItem('test4');
-  todoList.addItem('test5');
-  
+  const todoList = new TodoList({ ul: ui_list, restoreFromLocalStorage: true });
+
   ui_list.addEventListener('click', (event) => {
     TodoListEventHandler.delegatedTodoItemClick(event, todoList);
   });
